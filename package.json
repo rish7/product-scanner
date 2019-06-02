@@ -10,7 +10,7 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "web": "ionic-app-scripts serve",
-    "web-release" : "ionic cordova build browser --release"
+    "web-release" : "ionic cordova build browser --release",
     "ios": "ionic cordova emulate ios -- --buildFlag=\"-UseModernBuildSystem=0\" --target=\"iPhone-X, 12.2\"",
     "android": "ionic cordova emulate android --target=\"Nexus_5_API_28\"",
     "start": "ionic cordova emulate ios --livereload --target=\"iPhone-X, 12.2\" -- --buildFlag=\"-UseModernBuildSystem=0\"",
