@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left *ngIf="scannedItems.length > 0">
+      <button color="secondary" ion-button icon-start (click)="enterItemDetail()">
+        <ion-icon name="help"></ion-icon>&nbsp;Enter
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Scan item(s)
+    </ion-title>
+
+
+
+    <ion-buttons end *ngIf="scannedItems.length > 0">
+      <button color="secondary" ion-button icon-start (click)="startScanItem()">
+        <ion-icon ios="ios-barcode-outline" md="md-barcode"></ion-icon>&nbsp;Scan
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-content no-bounce padding *ngIf="scannedItems.length == 0">
+    <ion-grid style="height: 100%">
+      <ion-row justify-content-center align-items-center style="height: 100%">
+        <button ion-button icon-start color="primary" class="firstItemScan" (click)="startScanItem()">
+          <ion-icon ios="ios-barcode-outline" md="md-barcode"></ion-icon>
+          Start Item Scanning
+        </button>
+        <button ion-button icon-start color="danger" class="firstItemEnter" (click)="enterItemDetail()">
+          <ion-icon name="help"></ion-icon>
+          Enter Item details
+        </button>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+
+
+  <ion-list class="scanneditems-q" *ngIf="scannedItems.length > 0">
+    <ion-item class="scanneditem" *ngFor="let scanneditem of scannedItems; let i = index;">
+      <h2>{{scanneditem.name}}</h2>
+      <h3>Product Code : {{scanneditem.id}}</h3>
+      <p>{{scanneditem.details}}</p>
+      <button ion-button color="danger" clear (click)="deleteItem(i)">
+        <ion-icon name="trash"></ion-icon>&nbsp;Remove item
+      </button>
+      <div item-end class="quantityWrapper">
+        <ion-row>
+          <ion-col width-50>&nbsp;</ion-col>
+          <ion-col width-50>
+            <button ion-button icon-only color="dark" full clear item-top (click)="IncreaseQuantityForProduct(scanneditem.id, 1, true)">
+              <ion-icon name="add"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col width-50>
+            QTY :
+          </ion-col>
+          <ion-col width-50>
+            <input type="number" text-center value="1" class="quantityTxt" [(ngModel)]="scanneditem.quantity" (change)="quantityChanged($event.target.value,$event.target)" />
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col width-50>&nbsp;</ion-col>
+          <ion-col width-50>
+            <button ion-button icon-only color="dark" full clear item-top [disabled]="scanneditem.quantity == 1"
+              (click)="IncreaseQuantityForProduct(scanneditem.id, -1, true)">
+              <ion-icon name="remove"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-item>
+  </ion-list>
+  <button ion-button color="primary" block *ngIf="scannedItems.length > 0" (click)="submitRequest()">Submit Request</button>
+
+</ion-content>

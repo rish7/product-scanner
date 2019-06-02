@@ -1,0 +1,25 @@
+page-scan {
+
+}
+
+.firstItemScan{
+    height:80px;
+    font-size:140%;
+    padding:0px 20%;
+}
+.firstItemEnter{
+    height:60px;
+    font-size:110%;
+    padding:0px 20%;
+}
+
+.scanneditems-q .scanneditem {
+    background: map-get($colors, secondary);
+    margin: 1% 0px;
+}
+.quantityWrapper {
+    margin: 0px!important;
+}
+.quantityTxt{
+    width:50px;
+}

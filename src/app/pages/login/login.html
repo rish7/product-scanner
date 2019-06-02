@@ -1,0 +1,53 @@
+<ion-content no-bounce>
+    <ion-grid style="height: 100%">
+        <ion-row justify-content-center align-items-center style="height: 100%">
+            <ion-card class="login-signup-area">
+                <ion-card-header text-center>
+                  LOGIN
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-4 offset-4 text-center>
+                        <view-logo></view-logo>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+            
+                  <form #loginForm="ngForm" autocomplete="off" class="login-form">
+                    <ion-row>
+                      <ion-col>
+                        <ion-list inset>
+            
+                          <ion-item>
+                            <ion-label stacked>Email</ion-label>
+                            <ion-input type="email" placeholder="e.g. user@domain.com" name="email" [(ngModel)]="loginCredentials.email"
+                              required pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"></ion-input>
+                          </ion-item>
+            
+                          <ion-item>
+                            <ion-label stacked>Password</ion-label>
+                            <ion-input type="password" placeholder="password minimum 6 letters" name="password" [(ngModel)]="loginCredentials.password"
+                              required pattern="[A-Za-z0-9]{6,}"></ion-input>
+                          </ion-item>
+            
+                        </ion-list>
+                      </ion-col>
+                    </ion-row>
+            
+                    <ion-row>
+                      <ion-col class="signup-col">
+                        <button ion-button color="primary" full type="submit" [disabled]="!loginForm.form.valid" (click)="login(loginForm)">
+                          <ion-icon name="log-in"></ion-icon> &nbsp;Login
+                        </button>
+                      </ion-col>
+                    </ion-row>
+                  </form>
+            
+                </ion-card-content>
+              </ion-card>
+        </ion-row>
+      </ion-grid>
+
+  
+</ion-content>

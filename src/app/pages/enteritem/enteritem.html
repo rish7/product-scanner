@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Enter Details
+    </ion-title>
+
+    <ion-buttons end>
+      <button color="secondary" ion-button (click)="cancelPage()">
+        Cancel
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form #itemDetailsForm="ngForm" autocomplete="off" class="itemDetails-form">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+
+          <ion-item>
+            <ion-label stacked>Product code</ion-label>
+            <ion-input type="text" placeholder="e.g. 12345" name="id" [(ngModel)]="itemDetails.id" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <button ion-button color="primary" full [disabled]="itemDetails.id.trim().length == 0" (click)="getDetailAboutItem(itemDetails.id)">
+              Get details
+            </button>
+          </ion-item>
+
+
+          <ion-item-divider>Or enter manually</ion-item-divider>
+
+          <ion-item>
+            <ion-label stacked>Product name</ion-label>
+            <ion-input type="text" placeholder="e.g. ABC 500mg" name="name" [(ngModel)]="itemDetails.name" required></ion-input>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label stacked>Product details</ion-label>
+            <ion-input type="text" placeholder="e.g. other details" name="details" [(ngModel)]="itemDetails.details"
+              required></ion-input>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label stacked>quantity</ion-label>
+            <ion-input type="number" placeholder="e.g. 12" name="quantity" pattern="[0-9]+" [(ngModel)]="itemDetails.quantity"
+              required></ion-input>
+          </ion-item>
+
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button color="primary" full type="submit" [disabled]="!itemDetailsForm.form.valid" (click)="done(itemDetailsForm)">
+          <ion-icon name="add"></ion-icon> &nbsp;Add item
+        </button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+</ion-content>

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      History
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-content no-bounce *ngIf="requestItems.length == 0">
+    <ion-grid style="height: 100%">
+      <ion-row justify-content-center align-items-center style="height: 100%">
+        <ion-card>
+          <ion-card-content>
+            <h3 ion-text text-center color="danger">No data to show!</h3>
+          </ion-card-content>
+        </ion-card>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+
+
+
+  <ion-list class="historyitems-q" *ngIf="requestItems.length > 0">
+    <ng-template ngFor let-requestItem [ngForOf]="requestItems">
+      <ion-item-divider>{{getDateFormat(requestItem.requestDate)}}</ion-item-divider>
+      <ion-item class="historyitem" *ngFor="let scanneditem of requestItem.scannedItems; let i = index;">
+        <h2>{{scanneditem.name}}</h2>
+        <h3>Product Code : {{scanneditem.id}}</h3>
+        <p>{{scanneditem.details}}</p>
+        <button ion-button color="primary" clear (click)="sendData(scanneditem)">
+          <ion-icon name="add"></ion-icon>&nbsp;Add to request again
+        </button>
+        <div item-end class="quantityWrapper">
+          <ion-row>
+            <ion-col>
+              QTY:<br/>
+              {{scanneditem.quantity}}
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-item>
+    </ng-template>
+  </ion-list>
+
+</ion-content>
