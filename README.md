@@ -1,12 +1,19 @@
 # Product Scanner
 This is handy product scanner app POC. Can be used in Super market to buy and warehouse to count/update stack details.
 
-#Support Device
+# Support Device
 - Android
 - iOS
 - Web
 
-#Configuration instructions 
+**iOS**
+![iOS - Scanner](/preview/iOS.png?raw=true "iOS - Scanner")
+**Android**
+![Android - Scanner](/preview/Android.png?raw=true "Android - Scanner")
+**Web**
+> [Web demo](/index.html)
+
+# Configuration instructions 
 - Download this repository code to local system and run `npm install` in root folder.
 - Please check package.json scripts commands to start run in device first.
 ```
@@ -21,7 +28,7 @@ or
 ```
 npm run web
 ```
-#Operating instructions
+# Operating instructions
 - It is very simple app, start using it to get familiar.
 - Login details please enter random email with valid format and password (currently it will take any email and password, no validation)
 - On success login it will show home page with start scan or enter manually. 
@@ -32,5 +39,5 @@ npm run web
 - History page user can add item to list again
 - Help page we can add FAQ or any other details, we can add new page like settings etc..
 
-#Copyright and licensing information
+# Copyright and licensing information
 Modify this code for free. But this app used Ionic, Angular, Cordova & Cordova plugins those licenses are not under this app control.
