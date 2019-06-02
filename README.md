@@ -11,7 +11,7 @@ This is handy product scanner app POC. Can be used in Super market to buy and wa
 **Android**
 ![Android - Scanner](/preview/Android.png?raw=true "Android - Scanner")
 **Web**
-> [Web demo](/index.html)
+> [Web demo](https://rish7.github.io/product-scanner/index.html)
 
 # Configuration instructions 
 - Download this repository code to local system and run `npm install` in root folder.
